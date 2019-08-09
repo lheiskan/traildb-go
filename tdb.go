@@ -17,8 +17,8 @@ import (
 	"fmt"
 	"os"
 	"reflect"
-	"unsafe"
 	"strings"
+	"unsafe"
 )
 
 /*
@@ -33,8 +33,8 @@ type TrailDB struct {
 	NumTrails     uint64
 	NumFields     uint64
 	NumEvents     uint64
-	minTimestamp  uint64
-	maxTimestamp  uint64
+	MinTimestamp  uint64
+	MaxTimestamp  uint64
 	fieldNames    []string
 	fieldNameToId map[string]uint64
 }
@@ -250,8 +250,8 @@ func Open(s string) (*TrailDB, error) {
 		NumTrails:     uint64(C.tdb_num_trails(db)),
 		NumEvents:     uint64(C.tdb_num_events(db)),
 		NumFields:     numFields,
-		minTimestamp:  uint64(C.tdb_min_timestamp(db)),
-		maxTimestamp:  uint64(C.tdb_max_timestamp(db)),
+		MinTimestamp:  uint64(C.tdb_min_timestamp(db)),
+		MaxTimestamp:  uint64(C.tdb_max_timestamp(db)),
 		fieldNames:    fields,
 		fieldNameToId: fieldNameToId,
 	}, nil
